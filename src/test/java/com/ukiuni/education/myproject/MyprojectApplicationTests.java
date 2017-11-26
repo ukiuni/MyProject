@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import lombok.experimental.var;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class MyprojectApplicationTests {
@@ -23,7 +25,12 @@ public class MyprojectApplicationTests {
 
 	@Before
 	public void init() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "libs/chromedriver");
+		String os = System.getProperty("os.name").toLowerCase();
+		if (os.contains("linux")) {
+			System.setProperty("webdriver.chrome.driver", "libs/chromedriver_linux");
+		} else if (os.contains("mac")) {
+			System.setProperty("webdriver.chrome.driver", "libs/chromedriver");
+		}
 		driver = new ChromeDriver();
 	}
 

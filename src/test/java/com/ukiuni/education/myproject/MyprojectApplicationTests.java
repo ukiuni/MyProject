@@ -25,7 +25,7 @@ public class MyprojectApplicationTests {
 	public void init() throws InterruptedException {
 		String os = System.getProperty("os.name").toLowerCase();
 		if (os.contains("linux")) {
-			System.setProperty("webdriver.chrome.driver", "libs/chromedriver_linux");
+			System.setProperty("webdriver.chrome.driver", "libs/chromedriver_for_linux");
 		} else if (os.contains("mac")) {
 			System.setProperty("webdriver.chrome.driver", "libs/chromedriver");
 		}

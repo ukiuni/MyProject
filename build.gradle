@@ -35,3 +35,9 @@ dependencies {
 	runtime group: 'org.webjars', name: 'vue', version: '2.5.3'
 	runtime group: 'org.webjars.npm', name: 'axios', version: '0.17.0'
 }
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "short"
+    }
+}

@@ -1,0 +1,21 @@
+os: linux
+language: java
+jdk:
+- openjdk8
+sudo: required
+env: DISPLAY=':99.0'
+dist: trusty
+addons:
+  chrome: stable
+before_script:
+- sh -e /etc/init.d/xvfb start
+script:
+- "./gradlew test"
+deploy:
+  provider: heroku
+  api_key:
+    secure: VHXZSkEfsMhaiiPKPE6XALj0MXRWydbfNYzddvCOOOYZE8LZCIL6kWYVYU2dRFDNMCyuCEYnjsBZfXBfwa2Q5jkgXdRNHUQICjo3xPgSWDz2s1Xcw0kgxrY52UE/1cFJodlivtPdUAqkGN+JKLizfK1n3y9JkLuDhyxUWyh6fuRZPwBHf6tEgdh/RKfLq4oU18beHl84v665kMdknLdV/ERinjLdCzDMh6rGwYyw2qk6KjAEjKn7mGRMRTUxBgacnMWIh1YOHR2khBzyXXq6eqIGHuiz7XSZAKS0d6enh8Uch1Hzqlu2VfCD5z7o/eyr/qWOgXNmKVK5ekbxssfARhmN0AKcwwgrBen+G1X42dKlcZk/oIAU1RR23UnFUZJK6qq69uqNlpn2cC8s4yydiOZdwfVfnTKkw9hjF++gklxj43227P0iKuCxwXXUVJY18FrHGl7WdUy7FD/lUDMfo3uNnrhhOVI/PP9fSS0yBEOJrWN9HTUePtK52jqkPfPSxmQiDhqlC6aUhAZHZUs6ncFBAjrErL3RQy0qTDXft2XGsj/lTwXemRP1bAXGvxhFep40ZBWkVgjIZY+WzO0xlZ3ROEAKYtQtQcwyyQ7KqlpuDWpFhZCixdxvhmk6yAJneuJ0h514sYCHRr4dwOw+H91/tVEcbRQ2RGst2RU3p7E=
+  app: rocky-badlands-18768
+  on:
+    repo: ukiuni/MyProject
+    branch: master 

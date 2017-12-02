@@ -1,46 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset=utf-8>
-<title>新しいサービス</title>
-<script type="text/javascript" src="webjars/vue/2.5.3/vue.min.js"></script>
-<script type="text/javascript"
-	src="webjars/axios/0.17.0/dist/axios.min.js"></script>
 
+<head>
+	<meta charset=utf-8>
+	<title>新しいサービス</title>
+	<script type="text/javascript" src="webjars/vue/2.5.3/vue.min.js"></script>
+	<script type="text/javascript" src="webjars/axios/0.17.0/dist/axios.min.js"></script>
 </head>
+
 <body>
 	<div id="contents">
 		<div id="read">新しいサービスを開始します。</div>
 		<div v-show="!registedMail">
-			<div v-show="error"
-				style="display: none; background-color: red; color: white"
-				v-bind="error">{{error}}</div>
+			<div v-show="error">{{error}}</div>
 			<input type="email" v-model="mail" placeholder="招待用メール" />
-			<button v-on:click="regist(mail)">登録</button>
+			<button @click="regist(mail)">登録</button>
 		</div>
-		<div id="thx" v-show="registedMail">お知らせは {{registedMail}}
-			にメールをお送りします。連絡差し上げるまでしばらくお待ち下さい。</div>
+		<div id="thx" v-show="registedMail">お知らせは {{registedMail}} にメールをお送りします。連絡差し上げるまでしばらくお待ち下さい。
+		</div>
 	</div>
 </body>
-<script type="text/javascript">
-	var app = new Vue({
-		el : '#contents',
-		data : {
-			mail : "",
-			error : null,
-			registedMail : null
-		},
-		methods : {
-			regist : function(mail) {
-				error = null;
-				axios.post("api/registrations","mail="+mail).then(
-						() =>{
-							this.registedMail = mail;
-						})["catch"]((e) =>{
-					this.error = "登録できないメールアドレスです。";
-				})
-			}
-		}
-	});
-</script>
+<script type="text/javascript" src="js/app.js"></script>
+
 </html>

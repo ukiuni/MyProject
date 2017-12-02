@@ -11,13 +11,15 @@ import com.ukiuni.education.myproject.entity.Registation;
 
 @RestController
 @RequestMapping("api/registrations")
-public class RegistController {
+public class RegistationController {
 	@Autowired
 	private RegistaionRepository registationRepository;
 
 	@PostMapping
 	public Registation regist(@RequestParam String mail) {
-		return registationRepository.save(Registation.of(0, mail));
+		Registation registation = new Registation();
+		registation.setMail(mail);
+		return registationRepository.save(registation);
 	}
 
 }

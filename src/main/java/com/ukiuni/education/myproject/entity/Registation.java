@@ -6,14 +6,10 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.Email;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(staticName = "of")
 public class Registation {
 	@Id
 	@GeneratedValue

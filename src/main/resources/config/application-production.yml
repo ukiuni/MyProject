@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://ec2-184-72-252-69.compute-1.amazonaws.com:5432/dd2vog6o1sksid
+    username: tpeftjecrksolg
+    password: d8f3d3614d2f0f0f1020f1084a9eaacad3d021dff85bac3ab7cba41ea7f90e12
